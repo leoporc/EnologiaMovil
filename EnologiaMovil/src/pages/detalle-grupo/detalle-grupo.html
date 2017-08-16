@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="redline">
+    <button ion-button
+            icon-only
+            menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Grupo 1</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-group>
+    <ion-list-header color="light">
+      <ion-icon name="leaf" item-left></ion-icon>
+        Grupo de Barrica: GRUPO BARRICA 1
+    </ion-list-header>
+
+    <div class="bar-stable">
+        <div class="row header">
+          <div class="col">Barrica</div>
+          <div class="col"></div>
+        </div>
+    <div class="row" *ngFor="let barrica of _grupoBarricasProvider.barricas; let i = index">
+        <div class="col">{{ barrica.codigoBarrica }}</div>
+        <div class="col">
+          <button ion-button outline item-rigth color="danger"
+            (click) = "sacar_barrica(i);">
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+          </button>
+        </div>
+    </div>
+  </div>
+
+  <button (click)="scan()"
+              ion-button
+              block
+              color="redline">
+              Agregar Barrica
+      </button>
+
+  </ion-item-group>
+</ion-content>

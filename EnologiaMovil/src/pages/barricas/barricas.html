@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-navbar color="redline">
+    <button ion-button
+            icon-only
+            menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Barricas</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-group *ngIf="muestra">
+    <ion-list-header color="light">
+      <ion-icon name="leaf" item-left></ion-icon>
+        Grupo de Barrica: GRUPO DE BARRICAS 525
+    </ion-list-header>
+
+    <ion-item>
+      Bodega Asociada
+      <ion-note item-end>
+        SALA DE BARRICAS 1
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Barrica: LL391411235
+
+    </ion-item>
+    <ion-item>
+      Toneleria: Taransut
+    </ion-item>
+    <ion-item>
+      Año: 2010
+    </ion-item>
+    <ion-item>
+      Origen: Francia
+    </ion-item>
+    <ion-item>
+      Bosque: Roble Frances
+    </ion-item>
+    <ion-item>
+      Tostado: Medio
+    </ion-item>
+    <tr>
+      <ion-item>
+      SKU:
+    </ion-item>
+        <ion-item>
+      Lote:
+    </ion-item>
+        <ion-item>
+      Corte:
+    </ion-item>
+    <ion-item>
+      Cantidad litros:
+    </ion-item>
+    <button (click)="sacar_barrica()"
+                ion-button
+                block
+                color="redline">
+                Sacar Barrica
+    </button>
+  </ion-item-group>
+
+
+  <button *ngIf="escanear"
+          (click)="scan()"
+              ion-button
+              block end
+              color="redline">
+              Escanear Barrica
+  </button>
+
+</ion-content>

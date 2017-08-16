@@ -1,0 +1,8 @@
+{
+  "name": "EnologiaMovil",
+  "app_id": "1efc0bb6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

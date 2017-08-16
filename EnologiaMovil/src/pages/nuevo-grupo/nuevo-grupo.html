@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="redline">
+    <button ion-button
+            icon-only
+            menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Nuevo Grupo</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+  <ion-item>
+    <ion-label stacked>Descripción Grupo</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <hr>
+  <div class="bar-stable">
+      <div class="row header">
+        <div class="col">Barricas</div>
+        <div class="col"></div>
+      </div>
+      <div class="row" *ngFor="let barrica of barricas; let i = index">
+          <div class="col">{{ barrica }}</div>
+          <div class="col">
+            <button ion-button outline item-rigth color="danger"
+              (click) = "sacar_barrica(i);">
+              <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            </button>
+          </div>
+      </div>
+  </div>
+  <button (click)="scan()"
+          ion-button icon-left>
+    <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+    Agregar Barrica
+  </button>
+
+</ion-list>
+
+
+</ion-content>

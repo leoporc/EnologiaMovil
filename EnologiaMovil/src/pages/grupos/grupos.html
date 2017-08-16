@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar color="redline">
+    <button ion-button
+            icon-only
+            menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Administrar Grupos</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getGrupos($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item (click)="verGrupo( grupo.codigoGrupoBarrica )"
+              *ngFor="let grupo of gruposBarricas">
+      {{ grupo.descripcionGrupoBarrica }}
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button (click)="nuevo_grupo()"
+            ion-fab color=redline><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

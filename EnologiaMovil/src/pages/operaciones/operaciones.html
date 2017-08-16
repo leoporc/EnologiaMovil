@@ -1,0 +1,111 @@
+<ion-header>
+
+  <ion-navbar color="redline">
+    <button ion-button
+            icon-only
+            menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Orden de trabajo N°: {{ codigoOrden }} </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list *ngFor="let tarea of _ordenesTrabajoProvider.tareas">
+      <div >
+        <ion-list-header color="dark">
+        {{ tarea.destino.descripcionTarea }}
+        </ion-list-header>
+        <ion-list-header color="light">
+          DESTINO
+        </ion-list-header>
+        <ion-item>
+          {{ tarea.destino.descripcionDeposito }}
+          <ion-note item-end>
+            <button (click)="scan()"
+                    *ngIf="tarea.tipoDeposito != 'BODEGA'"
+                    color="light" ion-button icon-only>
+              <ion-icon name="qr-scanner" ></ion-icon>
+            </button>
+           <button *ngIf="tarea.tipoDeposito == 'BODEGA'"
+                      color="light" ion-button icon-only>
+              <ion-icon md="md-checkmark" isActive="false" ></ion-icon>
+            </button>
+
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          Artículo:
+          <ion-note item-end>
+          {{ tarea.destino.descripcionArticulo }}
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          Litros a transferir:
+          <ion-note item-end>
+          {{ tarea.destino.cantidadArticulo | number:'.2-2' }} lts
+          </ion-note>
+        </ion-item>
+        <br>
+        <br>
+      </div>
+        <ion-list-header color="light">
+          ORIGEN
+        </ion-list-header>
+        <div class="row">
+            <div class="col">Bodega</div>
+            <div class="col">Item - Insumo</div>
+            <div class="col">Cantidad</div>
+            <div class="col">Cant. Conf.</div>
+        </div>
+        <div class="row" *ngFor="let origen of tarea.origen">
+
+            <div class="col"> {{ origen.descripcionDeposito }}</div>
+            <div class="col"> {{ origen.descripcionArticulo }} </div>
+            <div class="col"> {{ origen.cantidadArticulo | number:'.2-2' }}</div>
+            <div class="col">
+              <ion-item>
+                  <ion-input type="number"  placeholder='{{ origen.cantidadArticulo }}'></ion-input>
+              </ion-item>
+            </div>
+            <div *ngIf="origen.tipoDeposito != 'BODEGA'" class="col">
+              <button
+                    color="light" ion-button icon-only>
+              <ion-icon name="qr-scanner"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+       <hr>
+      <ion-item>
+        Total:
+        <ion-note item-end>
+        {{ tarea.destino.cantidadArticulo | number:'.2-2' }} lts
+        </ion-note>
+      </ion-item>
+
+  <button     ion-button
+              block
+              color="redline">
+            Ver Grupo
+  </button>
+  <button (click)="confirmar(tarea.destino.idMovimiento, tarea.destino.idDetalle)"
+          ion-button
+              block
+              color="redline">
+            Confirmar
+  </button>
+  <button (click)="cancelar()"
+          ion-button
+              block
+              color="redline">
+            Cancelar
+  </button>
+
+  </ion-list>
+</ion-content>
