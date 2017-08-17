@@ -4,6 +4,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { OrdenesTrabajoProvider } from '../../providers/ordenes-trabajo/ordenes-trabajo';
 // import { NativeStorage } from '@ionic-native/native-storage';
 import { Network } from '@ionic-native/network';
+import {LocalStoragePage} from '../local-storage/local-storage'
 
 @IonicPage()
 @Component({
@@ -34,10 +35,18 @@ export class OperacionesPage {
 
   }
 
-
+ordenes:any=[];
+// descripcionTarea
+// descripcionDeposito
+// descripcionArticulo
+// cantidadArticulo
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OperacionesPage');
+
+  // for (let i = 0; i < _ordenesTrabajoProvider; i++) {
+  //     _ordenesTrabajoProvider[i];
+  // }
   }
 
   confirmar(idMovimiento:number, idDetalle:number){
@@ -67,17 +76,16 @@ export class OperacionesPage {
               codigoOrden: this.codigoOrden
           }
           localStorage.setItem(operacion.codigoOrden.toString()+operacion.idDetalle,JSON.stringify(operacion));
+          this.operacionCorrecta();
           }
+
+
 }
 
-//  else{
-//    console.log("Conectadoooo");
-//  }
-//}
   cancelar(){
         this.navCtrl.pop();
         console.log("Vuelta pagina");
-    }
+  }
 
   scan(){
 
@@ -113,8 +121,20 @@ export class OperacionesPage {
 
   }
 
+  operacionCorrecta() {
+    let toast = this.toastCtrl.create({
+      message: 'Operacion Correcta',
+      duration: 1000
+    });
+    toast.present();
+  }
 
-}
+  verLocalStorage(){
+        this.navCtrl.push( LocalStoragePage );
+    }
+  }
+
+
 
 
 //
@@ -129,5 +149,8 @@ export class OperacionesPage {
 //         if (this.network.type === 'wifi') {
 //             console.log('we got a wifi connection, woohoo!');
 //         }
+//         if (this.network.type === 'CELL_4G '){
+//            console.log('we got a 4G connection, woohoo!');
+//        }
 //     }, 3000);
 //   });

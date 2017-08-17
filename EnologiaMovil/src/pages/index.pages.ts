@@ -12,3 +12,4 @@ export { OrdenTrabajoPage } from './orden-trabajo/orden-trabajo';
 export { ConexionPage } from './conexion/conexion';
 export { DetalleOperacionPage } from './detalle-operacion/detalle-operacion';
 export { SlidesPage } from './slides/slides';
+export  {LocalStoragePage} from './local-storage/local-storage';

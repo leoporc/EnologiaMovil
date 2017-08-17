@@ -59,4 +59,5 @@ export class ConexionPage {
 ionViewDidLoad() {
   console.log('ionViewDidLoad NetworkPage');
 }
+
 }

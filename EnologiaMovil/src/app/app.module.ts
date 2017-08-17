@@ -21,7 +21,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 //Pages
 import { MyApp } from './app.component';
 import { HomePage, LoginPage, TabsPage, MasPage, PreferenciasPage, GruposPage, BarricasPage,
-         DetalleGrupoPage, NuevoGrupoPage, OperacionesPage, OrdenTrabajoPage, DetalleOperacionPage, SlidesPage, ConexionPage} from '../pages/index.pages';
+         DetalleGrupoPage, NuevoGrupoPage, OperacionesPage, OrdenTrabajoPage, DetalleOperacionPage, SlidesPage, ConexionPage, LocalStoragePage} from '../pages/index.pages';
 
 import { Network } from '@ionic-native/network';
 
@@ -41,7 +41,8 @@ import { Network } from '@ionic-native/network';
     OrdenTrabajoPage,
     DetalleOperacionPage,
     SlidesPage,
-    ConexionPage
+    ConexionPage,
+    LocalStoragePage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,8 @@ import { Network } from '@ionic-native/network';
     OrdenTrabajoPage,
     DetalleOperacionPage,
     SlidesPage,
-    ConexionPage
+    ConexionPage,
+    LocalStoragePage
   ],
   providers: [
     StatusBar,
