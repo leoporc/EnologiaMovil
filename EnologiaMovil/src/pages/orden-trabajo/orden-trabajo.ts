@@ -18,12 +18,16 @@ export class OrdenTrabajoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrdenTrabajoPage');
+    for (let i = 0; i < this._ordenesTrabajoProvider.cant; i++) {
+        this._ordenesTrabajoProvider[i];
+        console.log(  this._ordenesTrabajoProvider[i]);
+    }
   }
 
   verOrden( id:number , codigoOrden:number ){
     this._ordenesTrabajoProvider.getDetalleOperacion(id);
     this.navCtrl.push( OperacionesPage, { codigoOrden:codigoOrden } );
-      
+
     // localStorage.setItem("this._ordenesTrabajoProvider",JSON.stringify( codigoOrden));
     // localStorage.setItem("codigoOrden", codigoOrden.toString());
   }

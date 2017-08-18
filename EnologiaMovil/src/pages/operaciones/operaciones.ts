@@ -17,36 +17,35 @@ export class OperacionesPage {
   codigoOrden:number;
   id:number = 0;
   status: any='';
+  numeroOrdenTrabajo: number=0;
+  codigoSector: number=0;
+
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private barcodeScanner: BarcodeScanner,
               private toastCtrl: ToastController,
               private platform: Platform,
-              // private nativeStorage: NativeStorage,
               private _ordenesTrabajoProvider:OrdenesTrabajoProvider,
               public network: Network
             ) {
 
     this.codigoOrden = this.navParams.get("codigoOrden");
 
-    //  for( let op of this._ordenesTrabajoProvider.detalleOrden){
-    //  }
+
+    //
+    // for( let op of this._ordenesTrabajoProvider.detalleOrden){
+    //
+    //
+    // }
 
   }
-
-ordenes:any=[];
-// descripcionTarea
-// descripcionDeposito
-// descripcionArticulo
-// cantidadArticulo
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OperacionesPage');
 
-  // for (let i = 0; i < _ordenesTrabajoProvider; i++) {
-  //     _ordenesTrabajoProvider[i];
-  // }
+
   }
 
   confirmar(idMovimiento:number, idDetalle:number){
@@ -131,7 +130,7 @@ ordenes:any=[];
 
   verLocalStorage(){
         this.navCtrl.push( LocalStoragePage );
-    }
+  }
   }
 
 
