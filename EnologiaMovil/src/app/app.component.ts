@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//import { SQLite } from '@ionic-native/sqlite';
+//import { TasksServiceProvider } from '../providers/index.services';
 import { GruposPage, BarricasPage, TabsPage, OrdenTrabajoPage, SlidesPage, ConexionPage } from '../pages/index.pages';
 
 @Component({
@@ -14,7 +16,8 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-              private menuCrtl: MenuController ) {
+              private menuCrtl: MenuController//public sqlite: SQLite,
+              ) {
 
     this.pages = [
         { title: 'Home', component: TabsPage },
@@ -25,18 +28,30 @@ export class MyApp {
     ];
 
     platform.ready().then(() => {
-
+      //this.createDatabase();
       statusBar.styleDefault();
       splashScreen.hide();
     });
-
   }
 
   openPage( pagina:any ){
 
-     this.nav.setRoot(pagina.component);
+    this.nav.setRoot(pagina.component);
     //this.rootPage = pagina.component;
     this.menuCrtl.close();
   }
+//
+//   createDatabase(){
+//   this.sqlite.create({
+//     name: 'Enologia.db',
+//     location: 'default' // the location field is required
+//   })
+//   .then((db) => {
+//     console.log(db);
+//   })
+//   .catch(error =>{
+//     console.error(error);
+//   });
+// }
 
 }

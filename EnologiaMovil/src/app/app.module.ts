@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { SQLite } from '@ionic-native/sqlite';
 
 //Http
 import { HttpModule } from '@angular/http';
@@ -14,6 +15,7 @@ import { BarricaProvider } from '../providers/barrica/barrica';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { GrupoBarricasProvider } from '../providers/grupo-barricas/grupo-barricas';
 import { OrdenesTrabajoProvider } from '../providers/ordenes-trabajo/ordenes-trabajo';
+import { TasksServiceProvider } from '../providers/index.services';
 
 //Plugins
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -84,6 +86,8 @@ import { Network } from '@ionic-native/network';
     GrupoBarricasProvider,
     OrdenesTrabajoProvider,
     NativeStorage,
+    SQLite,
+    TasksServiceProvider
   ]
 })
 export class AppModule {}
